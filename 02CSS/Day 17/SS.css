@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   background-color: black;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+
+}
+
+
+.box{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: orange;
+    position: relative;
+    box-shadow: 0px 0px 80px 10px  rgb(201, 92, 14);
+}
+
+    .orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border: 1px dashed rgba(197, 180, 180, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+ 
+    }
+         .orbit.planet { width: 200px; height: 200px; }
+        .orbit.planet2 { width: 300px; height: 300px; }
+        .orbit.planet3 { width: 400px; height: 400px; }
+        .orbit.planet4 { width: 500px; height: 500px; }
+        .orbit.planet5 { width: 600px; height: 600px; } 
+
+.planet::before{
+    content: '';
+    top: 50%;
+    left: 50%;
+    height: 20px;
+    width:20px;
+    border-radius: 50%;
+    background-color: aqua;
+    animation-name: vans;
+    animation-timing-function: linear;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    position: absolute;
+      box-shadow: 0px 0px 80px 10px aqua
+         
+
+}
+@keyframes vans {
+    from{
+transform: rotate(0deg) translateX(100px) ;
+    }
+    to{
+transform: rotate(360deg) translateX(100px)
+    }
+    
+}
+.planet2::before{
+     content: '';
+       top: 50%;
+       left: 50%;
+      height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgb(162, 0, 255);
+
+    animation-name: utk;
+    animation-timing-function: linear;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+       position: absolute;
+       box-shadow: 0px 0px 80px 10px rgb(43, 0, 255);
+}
+@keyframes utk {
+        from{
+transform: rotate(0deg) translateX(150px) ;
+    }
+    to{
+transform: rotate(360deg) translateX(150px)
+    }
+    
+}
+.planet3::before{
+     content: '';
+      top: 50%;
+       left: 50%;
+      height: 20px;
+    width:20px;
+    border-radius: 50%;
+    background-color: rgb(255, 0, 25);
+    animation-name: tash;
+    animation-timing-function: linear;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+       position: absolute;
+       box-shadow: 0px 0px 80px 10px rgb(255, 0, 25)
+}
+@keyframes tash {
+            from{
+transform: rotate(0deg) translateX(200px) ;
+    }
+    to{
+transform: rotate(360deg) translateX(200px)
+    }
+    
+}
+.planet4::before{
+        content: '';
+           top: 50%;
+            left: 50%;
+      height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgb(0, 38, 255);
+    animation-name: ykyk;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+       position: absolute;
+       box-shadow: 0px 0px 80px 10px  rgb(0, 38, 255);
+}
+@keyframes ykyk {
+                from{
+transform: rotate(0deg) translateX(250px) ;
+    }
+    to{
+transform: rotate(360deg) translateX(250px)
+    }
+    
+}
+.planet5::before{
+     content: '';
+            height: 20px;
+            width: 20px;
+    border-radius: 50%;
+    background-color: rgb(0, 255, 55);
+    animation-name: pkpk;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+       position: absolute;
+         top: 50%;
+            left: 50%;
+       box-shadow: 0px 0px 80px 10px rgb(0, 255, 55)
+}
+
+
+        @keyframes pkpk {
+            from { transform: translate(-50%, -50%) rotate(0deg) translateX(300px) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg) translateX(300px) rotate(-360deg); }
+        }

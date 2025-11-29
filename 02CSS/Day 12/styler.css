@@ -1,0 +1,31 @@
+.container{
+    height: 800px;
+    width: 800px;
+    background-color: aqua;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    height: 300px;
+    width: 300px;
+    background-color: orange;
+    margin: 10px;
+    border-radius: 50%;
+    transition-property: all;
+    transition-duration: 3s;
+    transition-timing-function: ease;
+    /* transition-delay: 1s; */
+    /* box-shadow: -5px -10px; */
+    /* box-shadow: -5px -10px 5px blue; */
+    /* box-shadow: inset -5px -5px 5px 30px yellow; */
+    /* box-shadow: inset 50px 50px blue; */
+}
+
+.box:hover{
+    background-color: purple;
+    height: 600px;
+    width: 600px;
+}

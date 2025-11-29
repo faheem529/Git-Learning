@@ -1,0 +1,20 @@
+/* select by element */
+h1{
+    color:aquamarine;
+    background-color: black;
+}
+h2{
+    color:blueviolet;
+    background-color: yellow;
+}
+/* select by class */
+.first{
+    background-color: rgb(136, 136, 206);
+}
+.second{
+    background-color: rgb(9, 236, 9);
+}
+/* select by id */
+#third{
+    background-color: blanchedalmond;
+}

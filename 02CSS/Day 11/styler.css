@@ -1,0 +1,218 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(243, 50, 50);
+    padding: 1rem;
+}
+
+h1{
+    color: white;
+}
+
+.right button{
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgb(243, 50, 50);
+    border: none;
+    padding-top: 0.3rem;
+    cursor: pointer;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0rem;
+    background-color: rgb(175, 164, 164);
+}
+
+.searching{
+    width: 450px;
+    max-width: 60%;
+    font-size: 1.5rem;
+    padding: .5rem;
+    border-radius: 7px;
+}
+
+.search > button {
+    font-size: 1rem;
+    margin-left: .5rem;
+    background-color: rgb(243, 50, 50);
+    color: white;
+    padding: .5rem;
+    border-radius: 10px;
+    width: 125px;
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./movies\ copy.jpg);
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.hero > h2 {
+    color: white;
+    font-size: 2rem;
+    background-color: black;
+}
+
+.hero > button{
+    background-color: rgb(243, 50, 50);
+    color: white; 
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.file{
+    text-align: center;
+    padding: 1rem;
+}
+
+.file > h2{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.images{
+    height: 450px;
+    border-radius: 10px;
+}
+
+.movie{
+    display: flex;
+    overflow-x:scroll;
+}
+
+.card{
+    border: 0.5rem solid rgb(237, 233, 233);
+    background-color: rgb(237, 233, 233);
+    text-align: center;
+    margin: 0.5rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.ing{
+    height: 500px;
+    display: flex;
+    margin-left: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.off{
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 8px;
+}
+.h1 .show{
+    text-align: center;
+    color: black;
+}
+.best{
+    text-align: center;
+    padding: .5rem;
+}
+
+.studio{
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    overflow-x: scroll;
+}
+
+.card > h3{
+    font-size: 2rem;
+}
+
+.bot{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.bot > img{
+    max-width: 80%;
+    border-radius: 10px;
+}
+
+@media (max-width:650px){
+    .logo{
+        flex-direction: column;
+        align-items: center;
+    }
+    .right{
+        display: flex;
+        flex-direction: column;
+    }
+    .movie{
+        flex-direction: column;
+    }
+}
+h3{
+    font-weight: 50px;
+}
+
+
+.wet{
+    margin-left: 100px;
+    border-radius: 25px;
+    margin-top: 100px;
+}
+
+.premiere{
+    height: 800px;
+    width: auto;
+    background-color: rgb(31, 57, 95);
+}
+
+.got{
+    max-width: 10px;
+    margin-bottom: 100px;
+}
+
+.music{
+    margin-bottom: 100px;
+}
+    
+.temp{
+    width: 100%;
+}
+
+.cart{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+
+.premiere{
+    height: 1000px;
+}
+
+.img{
+    border-radius: 10px;
+    height: 500px;
+    width: 300px;
+}
+
+h4{
+  position: relative;
+  left: 140px;
+  color: white;
+  font-size: larger;
+  font-weight: 200px;
+  display: inline-block;
+
+}

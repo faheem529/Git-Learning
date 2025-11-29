@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+}
+
+.card{
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 15px solid rgb(252, 248, 248);
+    border-radius: 20px;
+}
+
+.head{
+    margin-left: 2px;
+    background-color: white;
+}
+
+.brand{
+    color: red;
+    margin: 50px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.searching{
+    height: 30px;
+    width: 300px;
+    position: relative;
+    bottom: 13px;
+}
+
+button{
+    height: 50px;
+    width: 80px;
+    position: relative;
+    bottom: 15px;
+    font: 15px;
+    margin: 50px;
+    background-color: white;
+    border: none;
+    color: rgb(101, 96, 96);
+}
+
+
+.img{
+    position: relative;
+}
+.box{
+    display: inline-block;
+}
+
+.img{
+    height: 200px;
+    width: auto;
+    border-radius: 20px;
+}
+
+.restaurant_name{
+    font: 20px;
+    font-weight: bold;
+}
+
+.restaurant, .food, .location{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.rating{
+    background-color: green;
+    height: 20px;
+    padding: 3px;
+    position: absolute;
+    right: 5px;         
+    color: white;
+    border-radius: 7px;
+}
+
+.price, .distance{
+    position: absolute;
+    right: 5px;                 
+}
+
+.food, .place{
+    font-size: 15px;
+    color: rgb(164, 151, 151);
+}
+
+.distance{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+body{
+    background-color: rgb(252, 248, 248);
+}
+
+.image{
+    position: relative;
+}
+
+.card:hover{
+    background-color: white;
+    border-color: white;
+}
+
+.off{
+    font-size: 30px;
+    position: absolute;
+    color: white;
+    background-color: rgba(218, 43, 16, 0.6);
+    bottom: 15px;
+    left: 3px;
+}
+
+.second{
+    margin-left: 2px;
+    background-color: white;
+}
+
+.img3{
+    height: 70px;
+    width: 70px;
+}
+
+.dine{
+    position: relative;
+    bottom: 25px;
+    left: 8px;
+    font-size: 18px;
+    color: rgb(103, 100, 100);
+}
+
+.delivery{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.first, .second{
+    margin-top: 1px;
+    margin-bottom: 10px;
+}
+
+.second{
+    padding-bottom: 10px;
+    position: sticky;
+    top: 0px;
+    background-color: white;      
+}
+
+.third{
+    height: 380px;
+    background-color: white;
+}
+
+.dining{
+    margin-left: 200px;
+}
+
+.first{
+    margin-left: 200px;
+}
+
+.img{
+    width: 300px;
+    height: 200px;
+}
+.img4{
+    height: 300px;
+    width: auto;
+    position: relative;
+    left: 50px;
+    top: 20px;
+}
+h3{
+    position: relative;
+    left: 50px;
+    top: 20px;
+    font-size: larger;
+}

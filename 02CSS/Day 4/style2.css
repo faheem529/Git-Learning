@@ -1,0 +1,28 @@
+.container{
+    background-color: aqua;
+    margin-left: 200px;
+    margin-top: 150px;
+    position: relative;
+    height: 1000px;}
+.box{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    
+}
+.box1{
+    background-color: red;
+}
+.box2{
+    background-color: green;
+    position: fixed;
+    top: 30px;
+    left: 50px;
+    
+}
+.box3{
+    background-color: blue;
+}
+.box4{
+    background-color: yellow;
+}

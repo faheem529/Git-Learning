@@ -1,0 +1,15 @@
+.img1{
+    height: 300px;
+    width: auto;
+    float: right;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.img2{
+    height: 300px;
+    width: auto;
+    float: right;
+    margin-right: 10px;
+    clear: right;
+}

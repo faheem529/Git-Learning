@@ -1,0 +1,86 @@
+
+body {
+    font-family: 'Verdana', sans-serif; 
+    color: #333; 
+    background-color: #f0f0f0; 
+}
+
+
+header {
+    background-color: #4CAF50;
+    color: white;
+}
+
+h1 {
+    font-size: 3em; 
+    font-weight: bold; 
+}
+
+h2 {
+    font-size: 1.5em; 
+    color: #FFD700; 
+}
+
+article {
+    background-color: white;
+}
+
+.css-article h3 {
+    font-size: 2em;
+    color: #007BFF; 
+}
+
+.css-article p {
+    color: #555; 
+}
+
+.js-article h3 {
+    font-size: 2em; 
+    color: #FF4500; 
+}
+
+.js-article p {
+    color: #333;
+}
+
+.responsive-article h3 {
+    font-size: 2em; 
+    color: #8A2BE2;
+}
+
+.responsive-article p {
+    color: #444;
+}
+
+/* List Styles */
+h4 {
+    color: #FF69B4;
+    font-size: 1.5em; 
+}
+
+
+table {
+    width: 100%; 
+    background-color: #f9f9f9; 
+}
+
+
+th, td {
+    text-align: left; 
+}
+
+th {
+    background-color: #007BFF; 
+    color: white; 
+}
+
+td {
+    color: #333; 
+}
+
+
+footer {
+    color: #333; 
+    background-color: #ccc; 
+    font-weight: bold; 
+}

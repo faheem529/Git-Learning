@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+}
+
+.card{
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 15px solid rgb(249, 243, 243);
+    border-radius: 20px;
+}
+
+
+.img{
+    position: relative;
+}
+.box{
+    display: inline-block;
+}
+
+.img{
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+}
+
+.restaurant_name{
+    font: 20px;
+    font-weight: bold;
+}
+
+.restaurant, .food, .location{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.rating{
+    background-color: green;
+    height: 20px;
+    padding: 3px;
+    position: absolute;
+    right: 5px;         
+    color: white;
+    border-radius: 7px;
+}
+
+.price, .distance{
+    position: absolute;
+    right: 5px;                 
+}
+
+.food, .place{
+    font-size: 15px;
+    color: rgb(164, 151, 151);
+}
+
+.distance{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+body{
+    background-color: rgb(249, 243, 243);
+}
+
+.image{
+    position: relative;
+}
+
+.card:hover{
+    background-color: white;
+    border-color: white;
+}
+
+.off{
+    font-size: 30px;
+    position: absolute;
+    color: white;
+    background-color: rgba(218, 43, 16, 0.6);
+    bottom: 15px;
+    left: 3px;
+    
+}

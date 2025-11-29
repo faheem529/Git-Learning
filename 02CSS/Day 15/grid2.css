@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+.body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.container{
+    padding: 5rem;
+    height: 680px;
+    width: 100%;
+    background-color: rgb(27, 27, 106);
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-area:
+    "Box1 Box2 Box2"
+    "Box3 Box3 Box4"
+    "Box5 Box6 Box4";    
+}
+
+.Box{
+    background-color: green;
+    font-size: 2rem;
+}
+
+.Box1 .Box2 .Box3 .Box4 .Box5 .Box6{
+    background-color: red;
+}
+ 

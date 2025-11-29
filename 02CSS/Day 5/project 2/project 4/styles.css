@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+}
+
+.first, .second, .third{
+    display: inline-block;
+    height: 100vh;
+    width: 32.9vw;
+    background-color: green;
+}
+
+.first{
+    display: inline-block;
+    height: 100vh;
+}
+
+.second{
+    background-color:white ; 
+}
+
+.third{
+    background-color:red;
+}
+
+
+
+

@@ -1,0 +1,14 @@
+h1{
+    font-size: 60px;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+p{
+    line-height:30px;
+}
+p{
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+}
+/* % of viewport width */

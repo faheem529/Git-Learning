@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        <fieldset>
+            <legend>IIT JEE Registration Form </legend>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="fname">
+        <br>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email">
+        <br>
+        <br>
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" name="pass">
+        <br>
+        <br>
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="gender">
+        <label for="female">Other</label>
+        <br>
+        <br>
+        <label for="date">Date of Birth:</label>                       
+        <input type="date" id="date" name="DOB" min="2001-01-01" max="2005-12-31">
+        <br>
+        <br>
+        <label for="school">School Name:</label>
+        <input type="text" id="school" name="school">
+        <br><br>
+        <label for="board">Board:</label>
+        <select name="Board" id="board">
+             <option value="CBSE" disabled selected></option>select your board>CBSE</option>
+             <option value="CBSE">CBSE</option>
+             <option value="ICSE">ICSE</option>
+             <option value="UPBOARD">UPBOARD</option>
+             <option value="UKB">UKB</option>
+             <option value="JKBOARD">JKBOARD</option>
+             <br>
+        </select> 
+        <br>
+        <br>
+        <label for="year">Year of passing:</label>
+        <input type="number" id="year" name="year" min="2023" max="2025">
+        <br>
+        <br>
+        <label for="center">Exam-center:</label>
+        <select name="center" id="center">
+            <option value="Delhi">Delhi</option>
+            <option value="Dehradun">Dehradun</option>
+            <option value="Goa">Goa</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <button>Registratio<n/button>
+        </select>
+        <br>
+        <br>
+        <button>Registration</button>
+        </fieldset>
+    </form>
+</body>
+</html>

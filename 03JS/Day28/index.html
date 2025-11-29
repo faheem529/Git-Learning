@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tailor Shop — Dashboard</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Small custom styles */
+    .loader { width:48px; height:48px; border-radius:50%; border:6px solid rgba(0,0,0,0.08); border-top-color:transparent; animation:spin 1s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .progress-step {transition: all 0.4s ease}
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-indigo-50 min-h-screen text-slate-800">
+  <header class="bg-white/80 backdrop-blur sticky top-0 z-40 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">TS</div>
+        <div>
+          <h1 class="text-lg font-semibold">Tailor Shop Portal</h1>
+          <p class="text-xs text-slate-500">Stitching · Orders · Payments</p>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-3">
+        <button id="darkToggle" class="px-3 py-2 rounded-md text-sm bg-slate-100">🌙 Dark</button>
+        <button id="loginBtn" class="px-4 py-2 rounded-md bg-indigo-600 text-white">Customer Login</button>
+        <button id="adminOpen" class="px-4 py-2 rounded-md border border-indigo-600 text-indigo-600">Admin</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Left: Check Status -->
+    <section class="col-span-2">
+      <div class="bg-white rounded-2xl p-6 shadow">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-semibold">Check Order Status</h2>
+          <div id="loaderWrap" class="hidden items-center gap-3"><div class="loader"></div><span class="text-sm text-slate-500">Checking...</span></div>
+        </div>
+
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+          <input id="orderId" class="md:col-span-2 p-3 rounded-lg border" placeholder="Enter Order ID e.g. T001" />
+          <button onclick="checkStatus()" class="p-3 rounded-lg bg-indigo-600 text-white">Check</button>
+        </div>
+
+        <div id="statusCard" class="mt-5 p-4 rounded-lg bg-indigo-50 hidden">
+          <div class="flex items-start gap-4">
+            <div class="w-20 h-20 rounded-lg bg-white flex items-center justify-center text-indigo-600 font-bold">📦</div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <h3 id="statusHeading" class="text-lg font-semibold">Order T001</h3>
+                <div class="text-sm text-slate-500">Estimated: <span id="eta">2 days</span></div>
+              </div>
+              <p id="statusText" class="mt-2 text-slate-700">Cutting done, stitching in progress.</p>
+
+              <!-- Progress bar -->
+              <div class="mt-4">
+                <div class="flex items-center gap-2" id="progressSteps">
+                  <!-- steps inserted by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Voice Assistant card -->
+      <div class="bg-white rounded-2xl p-6 shadow mt-6">
+        <div class="flex items-center justify-between">
+          <h2 class="text-lg font-semibold">Voice Assistant</h2>
+          <div class="text-sm text-slate-500">Use voice to ask: "status of T001"</div>
+        </div>
+        <div class="mt-4 flex gap-3">
+          <button id="startVoice" class="px-4 py-2 bg-emerald-500 text-white rounded-lg">Start Listening</button>
+          <button id="stopVoice" class="px-4 py-2 bg-red-400 text-white rounded-lg">Stop</button>
+          <button id="speakExample" class="px-4 py-2 bg-indigo-600 text-white rounded-lg">Speak Example</button>
+        </div>
+        <p id="voiceText" class="mt-3 text-slate-600"></p>
+      </div>
+    </section>
+
+    <!-- Right column: Admin Quick Panel + Payments -->
+    <aside>
+      <div class="bg-white rounded-2xl p-4 shadow">
+        <h3 class="font-semibold">Quick Admin</h3>
+        <p class="text-sm text-slate-500">Add / Update orders</p>
+        <input id="adminOrderId" class="mt-3 p-3 rounded-lg border" placeholder="Order ID e.g. T004" />
+        <input id="adminStatus" class="mt-2 p-3 rounded-lg border" placeholder="Status message e.g. Stitching in progress - 3 days" />
+        <div class="flex gap-2 mt-3">
+          <button onclick="addOrder()" class="flex-1 p-3 rounded-lg bg-indigo-600 text-white">Save</button>
+          <button onclick="deleteOrder()" class="p-3 rounded-lg border">Delete</button>
+        </div>
+        <p id="adminMsg" class="mt-2 text-sm text-slate-600"></p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow mt-4">
+        <h3 class="font-semibold">Payment (Demo)</h3>
+        <p class="text-sm text-slate-500">Pay now — integrates later with Razorpay / Paytm</p>
+        <select id="serviceType" class="mt-3 p-3 rounded-lg border w-full">
+          <option value="500">Suit Stitching - ₹500</option>
+          <option value="300">Kurta Stitching - ₹300</option>
+          <option value="150">Pant Alteration - ₹150</option>
+        </select>
+        <button onclick="makePayment()" class="mt-3 p-3 rounded-lg bg-amber-500 text-white w-full">Pay Now</button>
+        <p id="paymentMsg" class="mt-2 text-sm text-slate-600"></p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow mt-4">
+        <h3 class="font-semibold">Orders (Live)</h3>
+        <ul id="ordersList" class="mt-3 space-y-2 text-sm text-slate-700 max-h-64 overflow-auto"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Customer Login Modal -->
+  <div id="loginModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-xl w-full max-w-md p-6">
+      <h3 class="text-lg font-semibold">Customer Login</h3>
+      <p class="text-sm text-slate-500">Simulated OTP login (demo)</p>
+      <input id="custPhone" class="mt-4 p-3 rounded-lg border w-full" placeholder="Enter phone number" />
+      <div class="flex gap-2 mt-3">
+        <button id="sendOtp" class="flex-1 p-3 rounded-lg bg-indigo-600 text-white">Send OTP</button>
+        <button id="closeLogin" class="p-3 rounded-lg border">Close</button>
+      </div>
+      <input id="custOtp" class="mt-3 p-3 rounded-lg border w-full hidden" placeholder="Enter OTP" />
+      <p id="loginMsg" class="mt-2 text-sm text-slate-600"></p>
+    </div>
+  </div>
+
+  <!-- Dark mode class toggle handled in JS -->
+
+  <script>
+    // --- Data store (localStorage) & live updates ---
+    const defaultOrders = {
+      "T001": {status: 'Cutting done', eta: '2 days', stage: 2},
+      "T002": {status: 'Measurement approved', eta: '4 days', stage: 1},
+      "T003": {status: 'Ready for delivery', eta: '0 days', stage: 4}
+    };
+
+    function loadOrders(){
+      return JSON.parse(localStorage.getItem('orders')) || defaultOrders;
+    }
+    function saveOrders(o){
+      localStorage.setItem('orders', JSON.stringify(o));
+      renderOrdersList();
+    }
+
+    // initialize
+    if(!localStorage.getItem('orders')) localStorage.setItem('orders', JSON.stringify(defaultOrders));
+    let orders = loadOrders();
+
+    // Listen for storage events to simulate real-time across tabs
+    window.addEventListener('storage', (e)=>{ orders = loadOrders(); renderOrdersList(); });
+
+    // --- UI helpers ---
+    const ordersList = document.getElementById('ordersList');
+    function renderOrdersList(){
+      orders = loadOrders();
+      ordersList.innerHTML = Object.keys(orders).sort().map(id => {
+        const o = orders[id];
+        return `<li class="p-2 rounded-lg bg-slate-50 flex items-center justify-between">
+                  <div>
+                    <div class="font-medium">${id} <span class="text-xs text-slate-500">${o.eta}</span></div>
+                    <div class="text-xs text-slate-600">${o.status}</div>
+                  </div>
+                  <div class="text-xs text-slate-500">Stage ${o.stage || 1}</div>
+                </li>`
+      }).join('') || '<li class="text-sm text-slate-500">No orders yet</li>';
+    }
+    renderOrdersList();
+
+    // --- Check status with loader and progress bar ---
+    const loaderWrap = document.getElementById('loaderWrap');
+    function checkStatus(){
+      const id = document.getElementById('orderId').value.trim();
+      if(!id){ alert('Enter Order ID'); return; }
+      loaderWrap.classList.remove('hidden');
+      // simulate network delay
+      setTimeout(()=>{
+        orders = loadOrders();
+        loaderWrap.classList.add('hidden');
+        const data = orders[id];
+        if(!data){
+          alert('Order not found');
+          return;
+        }
+        document.getElementById('statusCard').classList.remove('hidden');
+        document.getElementById('statusHeading').innerText = `Order ${id}`;
+        document.getElementById('statusText').innerText = data.status;
+        document.getElementById('eta').innerText = data.eta || '—';
+        renderProgress(data.stage || 1);
+      }, 700);
+    }
+
+    // Render progress steps
+    const PROGRESS_LABELS = ['Pending','Cutting','Stitching','Quality','Ready'];
+    function renderProgress(currentStage){
+      const wrap = document.getElementById('progressSteps');
+      wrap.innerHTML = '';
+      PROGRESS_LABELS.forEach((label, idx)=>{
+        const step = idx+1;
+        const active = step <= currentStage;
+        wrap.insertAdjacentHTML('beforeend', `
+          <div class="flex-1 progress-step">
+            <div class="w-full h-3 rounded-full ${active ? 'bg-indigo-500' : 'bg-slate-200'}"></div>
+            <div class="mt-2 text-xs text-center ${active ? 'text-indigo-600' : 'text-slate-400'}">${label}</div>
+          </div>
+        `);
+      });
+    }
+
+    // --- Admin functions ---
+    function addOrder(){
+      const id = document.getElementById('adminOrderId').value.trim();
+      const st = document.getElementById('adminStatus').value.trim();
+      if(!id || !st){ document.getElementById('adminMsg').innerText = 'Enter ID & status'; return; }
+      orders = loadOrders();
+      // if existing keep stage + eta else set defaults
+      const existing = orders[id] || {stage:1};
+      orders[id] = {status: st, eta: existing.eta || '3 days', stage: existing.stage || 1};
+      saveOrders(orders);
+      document.getElementById('adminMsg').innerText = `${id} saved`;
+      setTimeout(()=>document.getElementById('adminMsg').innerText='',2000);
+    }
+    function deleteOrder(){
+      const id = document.getElementById('adminOrderId').value.trim();
+      if(!id){ document.getElementById('adminMsg').innerText = 'Enter ID to delete'; return; }
+      orders = loadOrders();
+      if(orders[id]){ delete orders[id]; saveOrders(orders); document.getElementById('adminMsg').innerText = `${id} deleted`; }
+      else document.getElementById('adminMsg').innerText = 'Order not found';
+      setTimeout(()=>document.getElementById('adminMsg').innerText='',2000);
+    }
+
+    // --- Payment demo ---
+    function makePayment(){
+      const amt = document.getElementById('serviceType').value;
+      document.getElementById('paymentMsg').innerText = `Preparing payment of ₹${amt} — demo only`; 
+      // placeholder for real gateway integration
+      setTimeout(()=>{ document.getElementById('paymentMsg').innerText = 'Payment simulated (success)'; },800);
+    }
+
+    // --- Customer login (OTP simulation) ---
+    const loginModal = document.getElementById('loginModal');
+    document.getElementById('loginBtn').addEventListener('click', ()=>{ loginModal.classList.remove('hidden'); loginModal.classList.add('flex'); });
+    document.getElementById('closeLogin').addEventListener('click', ()=>{ loginModal.classList.add('hidden'); loginModal.classList.remove('flex'); resetLogin(); });
+    document.getElementById('sendOtp').addEventListener('click', ()=>{
+      const phone = document.getElementById('custPhone').value.trim();
+      if(!phone){ document.getElementById('loginMsg').innerText = 'Enter phone number'; return; }
+      document.getElementById('loginMsg').innerText = 'OTP sent (demo: 1234)';
+      document.getElementById('custOtp').classList.remove('hidden');
+      // simulate OTP
+      document.getElementById('sendOtp').innerText = 'Resend';
+      document.getElementById('custOtp').focus();
+    });
+    document.getElementById('custOtp').addEventListener('input', ()=>{
+      const val = document.getElementById('custOtp').value.trim();
+      if(val === '1234'){
+        document.getElementById('loginMsg').innerText = 'Login success';
+        setTimeout(()=>{ loginModal.classList.add('hidden'); loginModal.classList.remove('flex'); resetLogin(); },800);
+      }
+    });
+    function resetLogin(){ document.getElementById('custPhone').value=''; document.getElementById('custOtp').value=''; document.getElementById('custOtp').classList.add('hidden'); document.getElementById('loginMsg').innerText=''; document.getElementById('sendOtp').innerText='Send OTP'; }
+
+    // --- Voice assistant (Web Speech API) ---
+    let recognition, speaking=false;
+    if('webkitSpeechRecognition' in window || 'SpeechRecognition' in window){
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SpeechRecognition();
+      recognition.lang = 'en-IN';
+      recognition.continuous = true;
+      recognition.interimResults = false;
+
+      recognition.onresult = (e)=>{
+        const text = e.results[e.results.length-1][0].transcript.trim();
+        document.getElementById('voiceText').innerText = 'Heard: "' + text + '"';
+        // try to parse "status of T001"
+        const m = text.match(/(status|order)\s+of\s+(T\d+)/i);
+        if(m){ checkStatusById(m[2]); }
+      };
+    }
+
+    document.getElementById('startVoice').addEventListener('click', ()=>{ if(recognition){ recognition.start(); document.getElementById('voiceText').innerText='Listening...'; } else alert('Speech API not supported'); });
+    document.getElementById('stopVoice').addEventListener('click', ()=>{ if(recognition){ recognition.stop(); document.getElementById('voiceText').innerText='Stopped'; } });
+    document.getElementById('speakExample').addEventListener('click', ()=>{ speak('What is the status of T001'); });
+
+    function checkStatusById(id){ document.getElementById('orderId').value = id; checkStatus(); speak('Checking status for ' + id); }
+
+    function speak(text){
+      if(!('speechSynthesis' in window)) return;
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-IN';
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    }
+
+    // --- Dark mode ---
+    const darkToggle = document.getElementById('darkToggle');
+    darkToggle.addEventListener('click', ()=>{
+      document.documentElement.classList.toggle('dark');
+      if(document.documentElement.classList.contains('dark')){
+        document.body.classList.remove('bg-gradient-to-br');
+        document.body.classList.add('bg-slate-900','text-slate-100');
+        darkToggle.innerText = '☀️ Light';
+      } else {
+        document.body.classList.add('bg-gradient-to-br');
+        document.body.classList.remove('bg-slate-900','text-slate-100');
+        darkToggle.innerText = '🌙 Dark';
+      }
+    });
+
+    // --- Admin quick open ---
+    document.getElementById('adminOpen').addEventListener('click', ()=>{
+      window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'});
+    });
+
+    // ensure orders list is up-to-date
+    renderOrdersList();
+  </script>
+
+</body>
+</html>

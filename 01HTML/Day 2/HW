@@ -1,0 +1,32 @@
+<h1>Discover Bali</h1>
+<p>Bali is beurtiful island in Indonesia,known for its stunning beaches,rich culture ,and vibrant nightlife. Whether yopu are looking for adventure or relaxation.Bali has somethinf for everyone.</p>
+<img src="./Bali 1.jpg" height="200" width="200">
+<img src="./Bali 2.jpg" height="200" width="200">
+<h2>Top Activities in bali</h2>
+<ul>
+    <li>Surfing at kuta Beach</li>
+    <li>Exploring Ubud's rice terrace</li>
+    <li>Visiting the Tannah Lot Temple</li>
+    <li>Realxing in a Luxury spa</li>
+</ul>
+<h2>Learn More About bali</h2>
+<ol>
+    <li>Book your flights to bali</li>
+    <li>Reserve accomodation near the beach or in Ubud.</li>
+    <li>pack your bag with lightweight clothing and sunscreen.</li>
+</ol>
+<h2>Learm More About Bali</h2>
+<p>Here are some useful links to help you plan Bali trip:</p>
+<ul>
+    <li>
+        <a href="https://balitourismboard.id/" target="_Blank">Official Bali Tourism Site</a>
+    </li>
+    <li>
+        <a href="https://balitourism.in/" target="_Blank">Complete Travel Guide to Bali</a>
+    </li>
+</ul>
+<h2>Contact Us</h2>
+<p>
+    For more information,feel free to <a href="+62 813-3744-2008">contact us via phone</a>    
+    
+</p>

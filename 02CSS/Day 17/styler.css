@@ -1,0 +1,337 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.orbit{
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    position: absolute;
+
+}
+
+.sun{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 30px;
+    bottom: 30px;
+}
+
+.mercury{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+.orbital{
+    height: 200px;
+    width: 200px;
+    border: 1px dashed white;
+    border-radius: 50%;
+    bottom: 180px;
+    position: relative;
+    right: 80px;
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg) translate(100px);
+    }
+    to{
+        transform: rotate(360deg) translate(100px);
+    }
+}
+
+.venus{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: rgb(100, 100, 171);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: venus;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes venus {
+    from{
+        transform: rotate(0deg) translate(170px);
+    }
+    to{
+        transform: rotate(360deg) translate(170px);
+    }
+}
+
+.earth{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: earth;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes earth {
+    from{
+        transform: rotate(0deg) translate(240px);
+    }
+    to{
+        transform: rotate(360deg) translate(240px);
+    }
+}
+
+.mars{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: rgb(181, 46, 46);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: mars;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes mars {
+    from{
+        transform: rotate(0deg) translate(310px);
+    }
+    to{
+        transform: rotate(360deg) translate(310px);
+    }
+}
+
+.jupiter{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: jupiter;
+    animation-duration: 6s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes jupiter {
+    from{
+        transform: rotate(0deg) translate(380px);
+    }
+    to{
+        transform: rotate(360deg) translate(380px);
+    }
+}
+
+.saturn{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: saturn;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes saturn {
+    from{
+        transform: rotate(0deg) translate(500px);
+    }
+    to{
+        transform: rotate(360deg) translate(500px);
+    }
+}
+
+.uranus{
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: uranus;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes uranus {
+    from{
+        transform: rotate(0deg) translate(600px);
+    }
+    to{
+        transform: rotate(360deg) translate(600px);
+    }
+}
+
+.neptune{
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    background-color: rgb(83, 42, 49);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: neptune;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes neptune {
+    from{
+        transform: rotate(0deg) translate(750px);
+    }
+    to{
+        transform: rotate(360deg) translate(750px);
+    }
+}
+
+.orbital1{
+    height: 200px;
+    width: 200px;
+    border: 1px dashed white;
+    border-radius: 50%;
+    bottom: 180px;
+    position: relative;
+    right: 100px;
+}
+
+.orbital2{
+    height: 250px;
+    width: 250px;
+    border: 1px dashed white;
+    border-radius: 50%;
+    bottom: 180px;
+    position: relative;
+    right: 80px;
+    top: auto;
+}
+
+.orbital3{
+    height: 300px;
+    width: 300px;
+    border: 1px dashed white;
+    border-radius: 50%;
+    bottom: 180px;
+    position: relative;
+    right: 80px;
+    top: auto;
+}
+
+.orbital4{
+    height: 350px;
+    width: 350px;
+    border: 1px dashed white;
+    border-radius: 50%;
+    bottom: 180px;
+    position: relative;
+    right: 80px;
+    top: auto;
+}
+
+.orbital5{
+    height: 400px;
+    width: 400px;
+    border: 1px dashed white;
+    border-radius: 50%;
+    bottom: 180px;
+    position: relative;
+    right: 80px;
+    top: auto;
+}
+
+.orbital6{
+    height: 450px;
+    width: 450px;
+    border: 1px dashed white;
+    border-radius: 50%;
+    bottom: 180px;
+    position: relative;
+    right: 80px;
+    top: auto;
+}
+
+.orbital7{
+    height: 500px;
+    width: 500px;
+    border: 1px dashed white;
+    border-radius: 50%;
+    bottom: 180px;
+    position: relative;
+    right: 80px;
+    top: auto;
+}

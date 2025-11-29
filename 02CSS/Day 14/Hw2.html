@@ -1,0 +1,58 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chess Board</title>
+  <link rel="stylesheet" href="./Hw2.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="board-frame" role="img" aria-label="Chessboard with dark brown and cream squares">
+      <div class="ranks" aria-hidden="true">
+        <div>8</div>
+        <div>7</div>
+        <div>6</div>
+        <div>5</div>
+        <div>4</div>
+        <div>3</div>
+        <div>2</div>
+        <div>1</div>
+      </div>
+
+      <div id="board" class="board"></div>
+
+      <div class="files" aria-hidden="true">
+        <div>A</div><div>B</div><div>C</div><div>D</div>
+        <div>E</div><div>F</div><div>G</div><div>H</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const board = document.getElementById('board');
+    const files = ['A','B','C','D','E','F','G','H'];
+
+    for(let row=8; row>=1; row--){
+      for(let col=0; col<8; col++){
+        const square = document.createElement('div');
+        square.classList.add('square');
+        if(((row + col) % 2) === 0) square.classList.add('light');
+        else square.classList.add('dark');
+
+        const coord = files[col] + row;
+        square.setAttribute('data-coord', coord);
+
+        const sr = document.createElement('span');
+        sr.style.fontSize='10px';
+        sr.style.opacity='0';
+        sr.textContent = coord;
+        square.appendChild(sr);
+
+        board.appendChild(square);
+      }
+    }
+  </script>
+</body>
+</html>
