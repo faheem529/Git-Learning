@@ -9,3 +9,7 @@ console.log(Payment);
 
 const upi = "UPI payment method added";
 console.log(upi);
+
+const footer = "Footer section created";
+console.log(footer);
+
