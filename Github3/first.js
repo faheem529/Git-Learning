@@ -18,3 +18,7 @@ const header = "Header section created";
 console.log(header);
 
 console.log("Latest Update");
+
+
+// I am fixing some Bug
+console.log("Bug fixed");
