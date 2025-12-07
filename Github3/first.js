@@ -13,3 +13,8 @@ console.log(upi);
 const footer = "Footer section created";
 console.log(footer);
 
+
+const header = "Header section created";
+console.log(header);
+
+console.log("Latest Update");
