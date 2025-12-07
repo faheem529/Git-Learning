@@ -6,3 +6,6 @@ console.log(login);
 
 const Payment = "Payment gateway integrated";
 console.log(Payment);
+
+const upi = "UPI payment method added";
+console.log(upi);
